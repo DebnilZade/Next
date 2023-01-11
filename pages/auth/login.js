@@ -43,10 +43,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
      const data = new FormData(event.currentTarget);
-    // console.log({
-    //   username: data.get('username'),
-    //   password: data.get('password'),
-    // });
+    
         userService.login(data.get('username'), data.get('password'))
         .then(() => {
             // get return url from query parameters or default to '/'
