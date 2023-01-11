@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
+import { useEffect,useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,7 +14,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { userService } from '../../services';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -29,13 +31,33 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const router = useRouter();
+  useEffect(() => {
+      // redirect to home if already logged in
+      if (userService.userValue) {
+          router.push('/');
+      }
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+     const data = new FormData(event.currentTarget);
+    // console.log({
+    //   username: data.get('username'),
+    //   password: data.get('password'),
+    // });
+        userService.login(data.get('username'), data.get('password'))
+        .then(() => {
+            // get return url from query parameters or default to '/'
+            const returnUrl = router.query.returnUrl || '/';
+            router.push(returnUrl);
+            console.log(returnUrl);
+        })
+        .catch(error => {
+            console.log('apiError'+error);
+        });
+
   };
 
   return (
@@ -61,10 +83,10 @@ export default function Login() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="User Name"
+              label="User Name"
+              name="username"
+              autoComplete="User Name"
               autoFocus
             />
             <TextField
