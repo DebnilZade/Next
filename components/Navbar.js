@@ -13,7 +13,7 @@ const Navbar = () => {
             <li><a href="" className={styles.listItem}>Contact</a></li>
             <li><a onClick={logout} className={styles.listItem}>Logout</a></li>
         </ul>
-        <div></div>
+        <div className="test"></div>
         </>
     );
 }
