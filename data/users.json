@@ -3,7 +3,17 @@
         "id": 1,
         "username": "Debnil",
         "password": "Debnil",
-        "firstName": "Test",
-        "lastName": "User"
+        "firstName": "Debnil",
+        "lastName": "Majumder",
+        "isAdmin": false
+    },
+    {
+        "id": 2,
+        "username": "Chiranjit",
+        "password": "Chiranjit",
+        "firstName": "Chiranjit",
+        "lastName": "Mondal",
+        "isAdmin": true
     }
+    
 ]
