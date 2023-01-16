@@ -1,28 +1,17 @@
 // users in JSON file for simplicity, store in a db for production applications
 let tasks = require('../../data/tasks.json');
-
+import dbConnect from '../../db/mongodb.js';
+import Task from '../../models/Task.js';
 
 export const taskRepo = {
     getAll: () => tasks,
-    find: x => tasks.find(x),
-    create,
+    find: x => tasks.find(x),  
     update,
     delete: _delete
 };
 
 
-function create(task) {
-    // generate new user id
-    task.id = tasks.length ? Math.max(...tasks.map(x => x.id)) + 1 : 1;
 
-    // set date created and updated
-    task.dateCreated = new Date().toISOString();
-    task.dateUpdated = new Date().toISOString();
-
-    // add and save user
-    tasks.push(task);
-    saveData();
-}
 
 function update(id, params) {
     const task = tasks.find(x => x.id.toString() === id.toString());

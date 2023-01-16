@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import {taskService} from '../../services';
 import Navbar from '../../components/Navbar';
+import NextLink from 'next/link';
+import {Link} from '../../components/Link';
+
 
 const Index = ()=>{
 
@@ -12,7 +15,8 @@ const Index = ()=>{
     return(
         <>
         <Navbar></Navbar>
-        <h1>Task List</h1>
+        <h1>Task List</h1>        
+        <Link href="/tasks/add" className="add-task">Add Task</Link>
         <table>
             <thead>
             <tr>
