@@ -1,33 +1,34 @@
 import { useState, useEffect } from 'react';
-import {userService} from '../../services';
-import users from '../api/users';
+import {clientService} from '../../services';
 import Navbar from '../../components/Navbar';
-
 
 const Index = ()=>{
 
-    const [users,setUsers]=useState(null);
+    const [clients,setClients]=useState(null);
     useEffect(() => {
-        userService.getAll().then(x => setUsers(x));
+        clientService.getAll().then(x => setClients(x));
     }, []);
 
     return(
         <>
         <Navbar></Navbar>
-        <h1>Users List</h1>
+        <h1>Client List</h1>
         <table>
             <thead>
             <tr>
-                <th>Name</th>
-                <th>First Name</th>
+                <th>Client id</th>
+                <th>Client Name</th>
+                <th>Status</th>
                 
             </tr>
             </thead>
             <tbody>
-            {users?users.map(user=>
-                <tr key={user.id}>
-                    <td>{user.firstName}</td>
-                    <td>{user.lastName}</td>
+            {clients?clients.map(client=>
+                <tr key={client.id}>
+                    <td>{client.id}</td>
+                    <td>{client.firstName}</td>
+                    <td>{client.status}</td>
+                    
                 </tr>
             ):
             <tr>

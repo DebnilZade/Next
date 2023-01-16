@@ -22,6 +22,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar/>
+      <h1>
+      Hola {userService.userValue?.firstName}!
+      </h1>
     
      
     </>

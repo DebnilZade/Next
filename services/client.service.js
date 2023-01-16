@@ -3,9 +3,9 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig,reactStrictMode } = getConfig();
 
 
-const baseUrl = `${publicRuntimeConfig.apiUrl}/tasks`;
+const baseUrl = `${publicRuntimeConfig.apiUrl}/clients`;
 
-export const taskService = { 
+export const clientService = { 
     getAll
 };
 
