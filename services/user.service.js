@@ -7,7 +7,7 @@ import { fetchWrapper } from '../helpers';
 
 const { publicRuntimeConfig,reactStrictMode } = getConfig();
 const baseUrl = `${publicRuntimeConfig.apiUrl}/users`;
-console.log(`${publicRuntimeConfig.apiUrl}`);
+//console.log(`${publicRuntimeConfig.apiUrl}`);
 const userSubject = new BehaviorSubject(process.browser && JSON.parse(localStorage.getItem('user')));
 
 export const userService = {
