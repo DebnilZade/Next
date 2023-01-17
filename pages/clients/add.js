@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
-import {taskService} from '../../services';
+import {clientService} from '../../services';
 import Navbar from '../../components/Navbar';
 import { useRouter } from 'next/router';
 
 const Add = ()=>{
     const router = useRouter();
-    const [tasks,setTasks]=useState(null);
+    
 
     const status = [
 
-        { id:1,label: 'Pending', value: 'pending' },
+        { id:1,label: 'Active', value: 'active' },
      
-        { id:2,label: 'On-progress', value: 'on_progress' },
-     
-        { id:3,label: 'Completed', value: 'completed' },
+        { id:2,label: 'De-Active', value: 'deActive' }     
+       
      
       ];
   
@@ -23,13 +22,12 @@ const Add = ()=>{
     
         // Get data from the form.
         const data = {
-            taskname: event.target.task_name.value,
+            name: event.target.client_name.value,
             status: event.target.status.value,
-            client_id: event.target.client.value,
         }
         //console.log(data);
-        taskService.add(data).then(()=>{
-            const returnUrl = router.query.returnUrl || '/tasks';
+        clientService.add(data).then(()=>{
+            const returnUrl = router.query.returnUrl || '/clients';
             router.push(returnUrl);            
         });
        
@@ -38,22 +36,11 @@ const Add = ()=>{
     return(
         <>
         <Navbar></Navbar>
-        <h1>Add Task</h1>
+        <h1>Add Client</h1>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="client">Client</label>
-           
-            <select id="client" name="client" required>
-
-                <option value="1">Dc-consulting</option>
-
-                <option value="2">Justin Becker</option>
-
-                <option value="3">Zachery   </option>
-
-            </select>
-
-            <label htmlFor="task_name">Task Name</label>
-            <input type="text" id="task_name" name="task_name" required />
+            
+            <label htmlFor="client_name">Client Name</label>
+            <input type="text" id="client_name" name="client_name" required />
 
             <label htmlFor="status">Status</label>
            

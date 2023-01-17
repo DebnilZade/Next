@@ -10,9 +10,7 @@ export default apiHandler({
 async function addTask(req, res) {
     
     console.log(req);
-    // const response = taskRepo.create(req,res);
-    // console.log("test"+response)
-    // return res.status(200).json(response);
+   
     await dbConnect();
     const task = await Task.create(
         req.body

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import {clientService} from '../../services';
 import Navbar from '../../components/Navbar';
+import {Link} from '../../components/Link';
 
 const Index = ()=>{
 
@@ -13,6 +14,7 @@ const Index = ()=>{
         <>
         <Navbar></Navbar>
         <h1>Client List</h1>
+        <Link href="/clients/add"><button className='add-button'>Add Client</button></Link>
         <table>
             <thead>
             <tr>
@@ -24,9 +26,9 @@ const Index = ()=>{
             </thead>
             <tbody>
             {clients?clients.map(client=>
-                <tr key={client.id}>
-                    <td>{client.id}</td>
-                    <td>{client.firstName}</td>
+                <tr key={client._id}>
+                    <td>{client._id}</td>
+                    <td>{client.name}</td>
                     <td>{client.status}</td>
                     
                 </tr>
