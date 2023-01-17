@@ -49,7 +49,7 @@ export default function Login() {
             // get return url from query parameters or default to '/'
             const returnUrl = router.query.returnUrl || '/';
             router.push(returnUrl);
-            console.log(returnUrl);
+            //console.log(returnUrl);
         })
         .catch(error => {
             console.log('apiError'+error);
