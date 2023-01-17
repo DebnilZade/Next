@@ -1,0 +1,21 @@
+pull 
+============
+git pull
+
+git checkout <branch which is present in the remote repository(origin)>
+
+git pull origin <branch>
+
+
+push 
+==============
+
+git add <file name>
+git add .
+
+git commit -u "your note"
+
+git push
+
+
+

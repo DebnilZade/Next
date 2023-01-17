@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import {userService} from '../../services';
 import users from '../api/users';
 import Navbar from '../../components/Navbar';
+import {Link} from '../../components/Link';
 
 
 const Index = ()=>{
@@ -15,6 +16,7 @@ const Index = ()=>{
         <>
         <Navbar></Navbar>
         <h1>Users List</h1>
+        <Link href="/users/add"><button className='add-button'>Add User</button></Link>
         <table>
             <thead>
             <tr>
@@ -25,7 +27,7 @@ const Index = ()=>{
             </thead>
             <tbody>
             {users?users.map(user=>
-                <tr key={user.id}>
+                <tr key={user._id}>
                     <td>{user.firstName}</td>
                     <td>{user.lastName}</td>
                 </tr>
