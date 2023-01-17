@@ -1,5 +1,9 @@
 // users in JSON file for simplicity, store in a db for production applications
 let users = require('../../data/users.json');
+import dbConnect from '../../db/mongodb.js';
+import User from '../../models/User.js';
+
+
 
 export const usersRepo = {
     getAll: () => users,
@@ -8,6 +12,13 @@ export const usersRepo = {
     update,
     delete: _delete
 };
+
+async function allUsers(res){
+
+    await dbConnect();
+    const users = await User.find({})
+    retunres.status(200).json({ success: true, data: tasks })
+}
 
 
 function create(user) {

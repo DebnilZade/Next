@@ -15,7 +15,8 @@ export const userService = {
     get userValue () { return userSubject.value },
     login,
     logout,
-    getAll
+    getAll,
+    add
 };
 
 function login(username, password) {
@@ -40,4 +41,8 @@ function logout() {
 
 function getAll() {
     return fetchWrapper.get(baseUrl);
+}
+
+function add(user){
+    return fetchWrapper.post(`${baseUrl}/add`,user);
 }
