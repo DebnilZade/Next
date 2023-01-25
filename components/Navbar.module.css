@@ -17,4 +17,6 @@
 .active{
     background-color: brown;
 }
-
+.deactive{
+    color:aqua;
+}
