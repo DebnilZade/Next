@@ -40,23 +40,28 @@ const Add = ()=>{
         <>
         <Navbar></Navbar>
         <h1>Add User</h1>
+        <div className="form-style">
         <form onSubmit={handleSubmit}>
             
-
+            <div className="form-field">
             <label htmlFor="user_name">User Name</label>
             <input type="text" id="user_name" name="user_name" required />
-
+            </div>
+            <div className="form-field">
             <label htmlFor="first_name">First Name</label>
             <input type="text" id="first_name" name="first_name" required />
-
+            </div>
+            <div className="form-field">
             <label htmlFor="last_name">Last Name</label>
             <input type="text" id="last_name" name="last_name" required />
-
+            </div>
+            <div className="form-field">
             <label htmlFor="password">Password</label>
             <input type="text" id="password" name="password" required />
-
+            </div>
+            <div className="form-field">
             <label htmlFor="role">Role</label>
-           
+            
             <select id="role" name="role" required>
 
                 <option value="false">basic</option>
@@ -64,7 +69,8 @@ const Add = ()=>{
                 <option value="true">admin</option>                
 
             </select>
-
+            </div>
+            <div className="form-field">
             <label htmlFor="status">Status</label>
            
             <select id="status" name="status" required>
@@ -76,11 +82,12 @@ const Add = ()=>{
                 ))}
 
             </select>
-
+            </div>
             
 
-            <button type="submit">Submit</button>
+            <button type="submit" className="button">Submit</button>
         </form>
+        </div>
         </>
     );
 }
