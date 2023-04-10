@@ -71,7 +71,7 @@ const Add = ()=>{
             </select>
             </div>
             <div className="form-field">
-            <label htmlFor="status">Status</label>
+            <label htmlFor="status">Status 1</label>
            
             <select id="status" name="status" required>
 
